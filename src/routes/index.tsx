@@ -1,8 +1,5 @@
+import { heroBagUrl, packagingUrl, featuresUrl, productUrl } from "@/lib/assets";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroBagAsset from "../assets/sarkar-hero-bag.png.asset.json";
-import packagingAsset from "../assets/sarkar-packaging.png.asset.json";
-import featuresAsset from "../assets/sarkar-features.png.asset.json";
-import productAsset from "../assets/sarkar-product.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -116,7 +113,7 @@ function Index() {
           </div>
           <div className="order-1 flex justify-center md:order-2">
             <img
-              src={heroBagAsset.url}
+              src={heroBagUrl}
               alt="SARKAR Throne parfum bottle resting on a black leather duffel bag"
               className="w-full max-w-md rounded-lg shadow-[0_40px_60px_rgba(0,0,0,0.8)]"
             />
@@ -146,19 +143,19 @@ function Index() {
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           <img
-            src={packagingAsset.url}
+            src={packagingUrl}
             alt="SARKAR Throne parfum bottle with its cylinder tube and box packaging"
             loading="lazy"
             className="h-full w-full rounded-lg border border-border/60 object-cover"
           />
           <img
-            src={productAsset.url}
+            src={productUrl}
             alt="SARKAR Throne 100ml matte black king-piece parfum bottle"
             loading="lazy"
             className="h-full w-full rounded-lg border border-border/60 bg-card object-contain p-6"
           />
           <img
-            src={featuresAsset.url}
+            src={featuresUrl}
             alt="SARKAR Throne features: cruelty free, long lasting, 25% oil concentration, IFRA certified, formulated in France"
             loading="lazy"
             className="h-full w-full rounded-lg border border-border/60 object-cover md:col-span-2"
