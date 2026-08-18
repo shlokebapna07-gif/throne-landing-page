@@ -1,5 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import throneImg from "../assets/sarkar-throne.png.asset.json?url";
+import packagingAsset from "../assets/sarkar-packaging.png.asset.json";
+import featuresAsset from "../assets/sarkar-features.png.asset.json";
+import productAsset from "../assets/sarkar-product.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -130,6 +133,36 @@ function Index() {
               <p className="mt-2 font-display text-xl text-foreground">{s.v}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <div className="text-center">
+          <p className="eyebrow">The Drop</p>
+          <h2 className="mt-3 font-display text-5xl md:text-6xl">
+            Every <span className="text-gold">detail</span>
+          </h2>
+        </div>
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
+          <img
+            src={packagingAsset.url}
+            alt="SARKAR Throne parfum bottle with its cylinder tube and box packaging"
+            loading="lazy"
+            className="h-full w-full rounded-lg border border-border/60 object-cover"
+          />
+          <img
+            src={productAsset.url}
+            alt="SARKAR Throne 100ml matte black king-piece parfum bottle"
+            loading="lazy"
+            className="h-full w-full rounded-lg border border-border/60 bg-card object-contain p-6"
+          />
+          <img
+            src={featuresAsset.url}
+            alt="SARKAR Throne features: cruelty free, long lasting, 25% oil concentration, IFRA certified, formulated in France"
+            loading="lazy"
+            className="h-full w-full rounded-lg border border-border/60 object-cover md:col-span-2"
+          />
         </div>
       </section>
 
