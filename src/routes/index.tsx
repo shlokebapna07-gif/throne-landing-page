@@ -116,9 +116,9 @@ function Index() {
           </div>
           <div className="order-1 flex justify-center md:order-2">
             <img
-              src={throneImg}
-              alt="SARKAR Throne product — flagship by Bhuvan Bam"
-              className="float-slow w-[70%] max-w-sm drop-shadow-[0_40px_60px_rgba(0,0,0,0.8)] md:w-full"
+              src={heroBagAsset.url}
+              alt="SARKAR Throne parfum bottle resting on a black leather duffel bag"
+              className="w-full max-w-md rounded-lg shadow-[0_40px_60px_rgba(0,0,0,0.8)]"
             />
           </div>
         </div>
