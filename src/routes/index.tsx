@@ -1,24 +1,198 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import throneImg from "../assets/sarkar-throne.png.asset.json?url";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "SARKAR Throne — By Bhuvan Bam" },
+      {
+        name: "description",
+        content:
+          "The Throne. A statement piece by Bhuvan Bam's SARKAR — crafted for those who rule. Shop the limited drop.",
+      },
+      { property: "og:title", content: "SARKAR Throne — By Bhuvan Bam" },
+      {
+        property: "og:description",
+        content:
+          "The Throne. A statement piece by Bhuvan Bam's SARKAR — crafted for those who rule.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:image", content: "/__l5e/assets-v1/1ad37f05-01b2-4ad3-b80e-e125bffcf5c8/sarkar-throne.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "SARKAR Throne — By Bhuvan Bam" },
+      {
+        name: "twitter:description",
+        content:
+          "The Throne. A statement piece by Bhuvan Bam's SARKAR — crafted for those who rule.",
+      },
+      {
+        name: "twitter:image",
+        content: "/__l5e/assets-v1/1ad37f05-01b2-4ad3-b80e-e125bffcf5c8/sarkar-throne.png",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+const SPECS = [
+  { k: "Material", v: "Premium alloy body" },
+  { k: "Finish", v: "Matte charcoal + gold" },
+  { k: "Weight", v: "180g — solid feel" },
+  { k: "Edition", v: "Limited drop" },
+];
+
+const STORY = [
+  {
+    n: "01",
+    t: "Conceived by Bhuvan Bam",
+    d: "Born from the creator's vision, the Throne is the flagship of SARKAR — designed to feel like power in your hand.",
+  },
+  {
+    n: "02",
+    t: "Crafted to last",
+    d: "Precision-machined alloy with a matte charcoal finish and gold accents. Built to be carried, not stored.",
+  },
+  {
+    n: "03",
+    t: "Limited by intent",
+    d: "A numbered, limited drop. Once the run is gone, the Throne is retired. No restocks, no reruns.",
+  },
+];
+
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Nav */}
+      <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <span className="font-display text-2xl tracking-[0.18em] text-gold">
+            SARKAR
+          </span>
+          <a
+            href="https://www.sarkar.store/products/throne"
+            target="_blank"
+            rel="noreferrer"
+            className="font-body text-sm tracking-[0.18em] uppercase text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Shop
+          </a>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section className="surface-throne relative overflow-hidden">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:grid-cols-2 md:py-28">
+          <div className="order-2 md:order-1">
+            <p className="eyebrow">By Bhuvan Bam</p>
+            <h1 className="mt-4 font-display text-6xl leading-[0.9] md:text-8xl">
+              THE <span className="text-gold">THRONE</span>
+            </h1>
+            <p className="mt-6 max-w-md font-body text-lg text-muted-foreground">
+              Power, refined. The flagship of SARKAR — a statement piece
+              built for those who rule.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href="https://www.sarkar.store/products/throne"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-royal"
+              >
+                Buy the Throne
+              </a>
+              <a
+                href="#story"
+                className="btn-ghost-royal"
+              >
+                The Story
+              </a>
+            </div>
+            <p className="mt-6 font-body text-sm tracking-wider text-muted-foreground">
+              Limited drop · Numbered edition
+            </p>
+          </div>
+          <div className="order-1 flex justify-center md:order-2">
+            <img
+              src={throneImg}
+              alt="SARKAR Throne product — flagship by Bhuvan Bam"
+              className="float-slow w-[70%] max-w-sm drop-shadow-[0_40px_60px_rgba(0,0,0,0.8)] md:w-full"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Specs strip */}
+      <section className="border-y border-border/60 bg-card">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px px-6 md:grid-cols-4">
+          {SPECS.map((s) => (
+            <div key={s.k} className="py-8 text-center">
+              <p className="eyebrow">{s.k}</p>
+              <p className="mt-2 font-display text-xl text-foreground">{s.v}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Story */}
+      <section id="story" className="mx-auto max-w-6xl px-6 py-24">
+        <div className="text-center">
+          <p className="eyebrow">The Craft</p>
+          <h2 className="mt-3 font-display text-5xl md:text-6xl">
+            Made to be <span className="text-gold">remembered</span>
+          </h2>
+        </div>
+        <div className="mt-16 grid gap-10 md:grid-cols-3">
+          {STORY.map((s) => (
+            <div key={s.n} className="border-t border-border pt-6">
+              <span className="font-display text-4xl text-gold">{s.n}</span>
+              <h3 className="mt-4 font-display text-2xl">{s.t}</h3>
+              <p className="mt-3 font-body text-muted-foreground">{s.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="surface-throne">
+        <div className="mx-auto max-w-3xl px-6 py-24 text-center">
+          <p className="eyebrow">Take the Throne</p>
+          <h2 className="mt-4 font-display text-5xl md:text-6xl">
+            Rule your <span className="text-gold">moment</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-md font-body text-muted-foreground">
+            A limited, numbered drop. Available now at sarkar.store while the
+            run lasts.
+          </p>
+          <a
+            href="https://www.sarkar.store/products/throne"
+            target="_blank"
+            rel="noreferrer"
+            className="btn-royal mt-10"
+          >
+            Shop the Throne
+          </a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border/60">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-10 md:flex-row">
+          <span className="font-display text-xl tracking-[0.18em] text-gold">
+            SARKAR
+          </span>
+          <p className="font-body text-xs tracking-wider text-muted-foreground">
+            © {new Date().getFullYear()} SARKAR by Bhuvan Bam. All rights reserved.
+          </p>
+          <a
+            href="https://www.sarkar.store"
+            target="_blank"
+            rel="noreferrer"
+            className="font-body text-xs tracking-[0.18em] uppercase text-muted-foreground transition-colors hover:text-foreground"
+          >
+            sarkar.store
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
