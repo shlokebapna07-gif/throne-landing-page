@@ -101,6 +101,14 @@ function Index() {
                 Buy the Throne
               </a>
               <a
+                href="https://www.sarkar.store/products/throne"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-ghost-royal"
+              >
+                Pricing
+              </a>
+              <a
                 href="#story"
                 className="btn-ghost-royal"
               >
