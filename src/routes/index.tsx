@@ -106,7 +106,7 @@ function Index() {
                 rel="noreferrer"
                 className="btn-ghost-royal"
               >
-                Pricing
+                Pricing · ₹2,499
               </a>
               <a
                 href="#story"
